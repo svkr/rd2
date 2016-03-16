@@ -1,11 +1,11 @@
 <?php
 // rd2 - url shortener under your control
 // Copyright (C) 2016  Sven Krug sven-krug@gmx.de
-// 
+//
 // This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; version 3 of the License.
-// 
+//
 // This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
-// 
+//
 // You should have received a copy of the GNU General Public License along with this program; if not, see <http://www.gnu.org/licenses/>.
 ?>
 <?php
@@ -64,7 +64,7 @@ if (UserIsAdmin($activeuser)) {
   echo "<td class=\"content\">&nbsp;<br /><font class=\"bold\">".getlang("ContentOwner")."</font>&nbsp;*<br />";
   echo '<form action="#" method="post" class="sortleft"><input type="hidden" name="showContent" /><input type="hidden" name="orderBy" value="ownerASC" />';
   echo '<input type="submit" name="showContent" class="buttonsort" value="&#x25B2;" /></form>';
-  echo '<form action="#" method="post" class="sortright"><input type="hidden" name="showContent" /><input type="hidden" name="orderBy" value="ownerDESC" />'; 
+  echo '<form action="#" method="post" class="sortright"><input type="hidden" name="showContent" /><input type="hidden" name="orderBy" value="ownerDESC" />';
   echo '<input type="submit" name="showContent" class="buttonsort" value="&#x25BC;" /></form></td>';
   echo "<td>&nbsp;</td>";
 }
@@ -176,10 +176,10 @@ if (UserIsAdmin($activeuser)) {
       $trbgcolor=$colorbgsecond;
     } else {
       $trbgcolor=$colorbgfirst;
-    }    
+    }
     if (isset($_REQUEST['ContentEditShort'])) {
       if ($_REQUEST['showContent'] == $row['short']) {
-        $trbgcolor="bgcolor=\"#E0FFFF\"";        
+        $trbgcolor="bgcolor=\"#E0FFFF\"";
       }
     }
     echo "<tr align=\"center\" ".$trbgcolor.">";
@@ -187,7 +187,7 @@ if (UserIsAdmin($activeuser)) {
           <input type=\"hidden\" name=\"showContent\" value=\"".$row['short']."\" />
           <input type=\"hidden\" name=\"ContentEditShort\" value=\"".$row['short']."\" />
           <input type=\"submit\" name=\"doedit\" value=\"".getlang("ContentBtnEdit")."\" class=\"button\" />
-          </td></form>          
+          </td></form>
           <td>&nbsp;</td>";
     echo "<td class=\"content\">".$row['short']."</td>";
     echo "<td>&nbsp;</td>";
@@ -201,8 +201,8 @@ if (UserIsAdmin($activeuser)) {
         echo "<td class=\"content\"><font class=\"textred\">".date("d.m.Y H:i:s", strtotime($row['expire']))."</font></td>";
       } else {
         echo "<td class=\"content\">".date("d.m.Y H:i:s", strtotime($row['expire']))."</td>";
-      }      
-    }    
+      }
+    }
     echo "<td>&nbsp;</td>";
     if (empty($row['passwd']) == TRUE) {
       echo "<td class=\"content\">".getlang("miscNo")."</td>";
@@ -238,7 +238,7 @@ if (UserIsAdmin($activeuser)) {
           } else {
             echo "<td class=\"content\"><font class=\"textgreen\">".$resultid."</font></td>";
           }
-        } 
+        }
         echo "<td>&nbsp;</td>";
       }
     }

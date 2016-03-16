@@ -1,11 +1,11 @@
 <?php
 // rd2 - url shortener under your control
 // Copyright (C) 2016  Sven Krug sven-krug@gmx.de
-// 
+//
 // This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; version 3 of the License.
-// 
+//
 // This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
-// 
+//
 // You should have received a copy of the GNU General Public License along with this program; if not, see <http://www.gnu.org/licenses/>.
 ?>
 <?php
@@ -120,7 +120,7 @@ function createDB() {
     setConfig("language", "DE");
     setConfig("shortmaxlength", "255");
     setConfig("commentmaxlength", "1024");
-    setConfig("veriexpire", "10");    
+    setConfig("veriexpire", "10");
     setConfig("dbversion", $latestdbversion);
 }
 function isDBempty() {
@@ -755,7 +755,7 @@ function createVerificationImage($strvalue) {
       // Draw character
       imagechar($img, $font_size, $xpos, $ypos, $string, $color);
       // Remove character from string
-      $string = substr($string, 1);      
+      $string = substr($string, 1);
   }
   // Return the image
   ob_start();

@@ -1,11 +1,11 @@
 <?php
 // rd2 - url shortener under your control
 // Copyright (C) 2016  Sven Krug sven-krug@gmx.de
-// 
+//
 // This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; version 3 of the License.
-// 
+//
 // This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
-// 
+//
 // You should have received a copy of the GNU General Public License along with this program; if not, see <http://www.gnu.org/licenses/>.
 ?>
 <form action="#" method="post">
@@ -25,7 +25,7 @@ if (isset($_REQUEST['ContentAdd'])) {
   $valueexpire = htmlspecialchars($_REQUEST['addexpire'], ENT_COMPAT, 'UTF-8');
   $valuecomment = htmlspecialchars($_REQUEST['addcomment'], ENT_COMPAT, 'UTF-8');
   $valuepasswd = htmlspecialchars($_REQUEST['addpasswd'], ENT_COMPAT, 'UTF-8');
-  $valuesalt="";  
+  $valuesalt="";
   // long leer?
   if (empty($valuelong)) {
     echo wasBAD().getlang("ContentAddMsgEmpty").".<p>";
@@ -75,8 +75,8 @@ if (isset($_REQUEST['ContentAdd'])) {
   if (strlen($valuecomment) > getConfig("commentmaxlength")) {
       echo wasBAD().getlang("ContentAddMsgToLongComment")." ".getConfig("commentmaxlength").".<p>";
       $doaddcontent=false;
-  }  
-   // ein leeres passwd wird nicht gehasht, da "leer" später noch genutzt wird; ToDo: ggf. hash-Wert von leer statt nur leer nutzen;  
+  }
+   // ein leeres passwd wird nicht gehasht, da "leer" später noch genutzt wird; ToDo: ggf. hash-Wert von leer statt nur leer nutzen;
    if (empty($valuepasswd) == FALSE) {
      $valuesalt=getNewSalt();
      $valuepasswd=password_hash($valuepasswd.$valuesalt, PASSWORD_DEFAULT);
@@ -88,7 +88,7 @@ if (isset($_REQUEST['ContentAdd'])) {
      $valueip=getRealIpAddr();
      $valuelong=urlencode($valuelong);
      $valuecomment=urlencode($valuecomment);
-     $db-> exec("INSERT OR REPLACE INTO content (short, long, passwd, salt, expire, added, owner, ip, comment) VALUES ('$valueshort', '$valuelong', '$valuepasswd', '$valuesalt', '$valueexpire', '$valueadded', '".$valueowner."', '$valueip', '$valuecomment')");   
+     $db-> exec("INSERT OR REPLACE INTO content (short, long, passwd, salt, expire, added, owner, ip, comment) VALUES ('$valueshort', '$valuelong', '$valuepasswd', '$valuesalt', '$valueexpire', '$valueadded', '".$valueowner."', '$valueip', '$valuecomment')");
      //
      $savedrd2prefix=getConfig("rd2prefix");
      $savedrd2prefixprotocol=getConfig("rd2prefixprotocol");
@@ -130,7 +130,7 @@ if (isset($_REQUEST['ContentEditShort'])) {
 echo "</td><td>";
 echo "<table border=\"0\">";
 // ### prepare
-if (isset($_REQUEST['ContentEditShort'])) { 
+if (isset($_REQUEST['ContentEditShort'])) {
 
 } else {
   $existsshort="";
@@ -147,7 +147,7 @@ if (isset($_REQUEST['ContentEditShort'])) {
   }
 }
 // ### long
-if (isset($_REQUEST['ContentEditShort'])) { 
+if (isset($_REQUEST['ContentEditShort'])) {
   echo "<tr>";
   echo "<td></td>";
   echo "<td><font class=\"bold\">".getlang("ContentAddLong")."</font>:</td>".
@@ -162,7 +162,7 @@ if (isset($_REQUEST['ContentEditShort'])) {
   echo "<tr>";
 }
 // ### short
-if (isset($_REQUEST['ContentEditShort'])) { 
+if (isset($_REQUEST['ContentEditShort'])) {
   echo "<tr>";
   echo "<td>&nbsp;&nbsp;&nbsp;</td>";
   echo "<td>".getlang("ContentAddShort").":</td>";
@@ -176,7 +176,7 @@ if (isset($_REQUEST['ContentEditShort'])) {
        " ".getlang("ContentAddExample")." '<font class=\"mono\">duck</font>'</td></tr>";
 }
 // ### passwd
-if (isset($_REQUEST['ContentEditShort'])) { 
+if (isset($_REQUEST['ContentEditShort'])) {
   echo "<tr>";
   echo "<td>&nbsp;&nbsp;&nbsp;</td>";
   echo "<td><font class=\"small\">(optional)</font> ".getlang("ContentAddPassword").":</td>".
@@ -192,7 +192,7 @@ if (isset($_REQUEST['ContentEditShort'])) {
        "<td><input type=\"password\" size=\"19\" name=\"addpasswd\" value=\"".$existspasswd."\" /></td></tr>";
 }
 // ### expire
-if (isset($_REQUEST['ContentEditShort'])) { 
+if (isset($_REQUEST['ContentEditShort'])) {
   if (!empty($valueaddexpire)) {
   $valueaddexpire=date("d.m.Y H:i:s", strtotime($valueaddexpire));
   }
@@ -225,7 +225,7 @@ if (isset($_REQUEST['ContentEditShort'])) {
        "</tr>";
 }
 // ### owner
-if (isset($_REQUEST['ContentEditShort'])) { 
+if (isset($_REQUEST['ContentEditShort'])) {
   if (UserIsAdmin($activeuser)) {
     echo "<td>&nbsp;&nbsp;&nbsp;</td>";
     echo "<td>".getlang("ContentEditOwner").":</td>".
@@ -264,7 +264,7 @@ if (isset($_REQUEST['ContentEditShort'])) {
     echo "<input type=\"hidden\" name=\"showContent\" />";
   }
        if (isset($_REQUEST['ContentEditShort'])) {
-         echo "<input type=\"hidden\" name=\"dontcheck\" />";         
+         echo "<input type=\"hidden\" name=\"dontcheck\" />";
        }
   echo "<input type=\"hidden\" name=\"ContentAdd\" />";
   if (isset($_REQUEST['ContentEditShort'])) {
@@ -273,7 +273,7 @@ if (isset($_REQUEST['ContentEditShort'])) {
     echo "<input type=\"submit\" name=\"Save\" value=\"".getlang("ContentAddBtnCreate")."\" class=\"button\" />";
   }
   echo "</form>".
-       "</td>";  
+       "</td>";
   if (isset($_REQUEST['ContentEditShort'])) {
     echo "<td><form action=\"#\" method=\"post\" style=\"margin-bottom:0;\">".
          "<input type=\"submit\" name=\"showContent\" value=\"".getlang("ContentEditBtnAbort")."\" class=\"button\" />".

@@ -1,11 +1,11 @@
 <?php
 // rd2 - url shortener under your control
 // Copyright (C) 2016  Sven Krug sven-krug@gmx.de
-// 
+//
 // This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; version 3 of the License.
-// 
+//
 // This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
-// 
+//
 // You should have received a copy of the GNU General Public License along with this program; if not, see <http://www.gnu.org/licenses/>.
 ?>
 <?php
@@ -24,7 +24,7 @@ function startUpdateProcess() {
   extractZip();
   echo "restore from maintenance...<br />";
   $upfile="./bin/rd2updatezip.zip";
-  $result = file_get_contents('zip://'.$upfile.'#bin/index.php'); 
+  $result = file_get_contents('zip://'.$upfile.'#bin/index.php');
   if (file_put_contents("bin/index.php", $result) === FALSE) {
     echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;abort! can't restore /bin/index.php<p>";
     echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;you can try to update again<p />";
@@ -48,8 +48,8 @@ function extractZip() {
         if ($zip) {
         while ($zip_entry = zip_read($zip)) {
           if (zip_entry_open($zip, $zip_entry)) {
-            if (zip_entry_name($zip_entry) !== "bin/update.php" && 
-                zip_entry_name($zip_entry) !== "bin/index.php" && 
+            if (zip_entry_name($zip_entry) !== "bin/update.php" &&
+                zip_entry_name($zip_entry) !== "bin/index.php" &&
                 zip_entry_name($zip_entry) !== "index.php") {
 
               $content=zip_entry_read($zip_entry, 4194304); // 4MB
@@ -95,7 +95,7 @@ if (!empty($_FILES["sourcefile"])) {
     $srcSHA1 = sha1_file($srcTmpName);
   }
   $srcVersion = "";
-  if (isset($_REQUEST['sourcesha1'])) {    
+  if (isset($_REQUEST['sourcesha1'])) {
     if ($abort == false) {
       // SHA1
       $sourcesha1=htmlspecialchars($_REQUEST['sourcesha1'], ENT_COMPAT, 'UTF-8');
@@ -201,7 +201,7 @@ if (!empty($_FILES["sourcefile"])) {
     }
   }
 } else {
-  if (isset($_REQUEST['showConfig'])) {    
+  if (isset($_REQUEST['showConfig'])) {
     echo "<table>";
     if ( intval(getConfig("dbversion")) < intval($latestdbversion)) {
       DBUpdate();

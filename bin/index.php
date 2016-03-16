@@ -1,11 +1,11 @@
 <?php
 // rd2 - url shortener under your control
 // Copyright (C) 2016  Sven Krug sven-krug@gmx.de
-// 
+//
 // This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; version 3 of the License.
-// 
+//
 // This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
-// 
+//
 // You should have received a copy of the GNU General Public License along with this program; if not, see <http://www.gnu.org/licenses/>.
 ?>
 <?php
@@ -48,7 +48,7 @@ if ($stopstart==true) {
 	font-style: normal;
 	font-size: 12px;
 }
-body {	
+body {
 	background: #F4F4F4;
 }
 .small {
@@ -145,7 +145,7 @@ td.content {
 	padding-right: 3px;
 }
 </style>
-	<!-- 	
+	<!--
 	background: transparent;
 	text-decoration:line-through;
 	border: 2px solid #0167F6;
@@ -230,7 +230,7 @@ if (isset($_REQUEST['showLogin'])) {
       }
     } else {
       createLogEntry("Login", "falsches Passwort", "Nutzer: >".$valueloginusername."<", "", "", "", "");
-      echo wasBAD().getlang("UsersMsgWrong")."!<p>";    
+      echo wasBAD().getlang("UsersMsgWrong")."!<p>";
     }
   }
 }
@@ -346,7 +346,7 @@ if (isset($_REQUEST['showUsers'])) {
       $valueusername=$_REQUEST['username'];
       $valuesalt=getNewSalt();
       $newpasswd=getFreeRandomID().getFreeRandomID();
-      $valuepasswd=password_hash($newpasswd.$valuesalt, PASSWORD_DEFAULT);      
+      $valuepasswd=password_hash($newpasswd.$valuesalt, PASSWORD_DEFAULT);
       $db-> exec("UPDATE config SET passwd='$valuepasswd', salt='$valuesalt' ".
                  "WHERE username='$valueusername'");
       echo wasGOOD().getlang("UsersMsgPassSet")." => <font class=\"bold\">".$newpasswd."</font><p>";

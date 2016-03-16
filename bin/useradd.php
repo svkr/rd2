@@ -1,11 +1,11 @@
 <?php
 // rd2 - url shortener under your control
 // Copyright (C) 2016  Sven Krug sven-krug@gmx.de
-// 
+//
 // This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; version 3 of the License.
-// 
+//
 // This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
-// 
+//
 // You should have received a copy of the GNU General Public License along with this program; if not, see <http://www.gnu.org/licenses/>.
 ?>
 <?php
@@ -61,28 +61,28 @@ if (isset($_REQUEST['userAdd'])) {
   // Nutzer bereits vorhanden?
   if (userExists($valusername)) {
     createLogEntry("Anmelden", "Nutzer existiert bereits", "Nutzer: >".$valusername."<", "", "", "", "");
-    echo wasBAD().getlang("UsersAddMsgUserExists").".";    
+    echo wasBAD().getlang("UsersAddMsgUserExists").".";
     removeVeriEntry($valverificationEntry);
     exit();
   }
   // Passwort-Wiederholung identisch?
   if ($valpasswd !== $valpasswdrepeat) {
     createLogEntry("Anmelden", "Passwortwiederholung nicht identisch", "Nutzer: >".$valusername."<", "", "", "", "");
-    echo wasBAD().getlang("UsersAddMsgNotEqual").".";    
+    echo wasBAD().getlang("UsersAddMsgNotEqual").".";
     removeVeriEntry($valverificationEntry);
     exit();
   }
   // Verifikation korrekt?
   if (isVeriCodeCorrect($valverificationEntry, $valverification) == false) {
     createLogEntry("Anmelden", "Verifikation ungültig", "Nutzer: >".$valusername."<", "", "", "", "");
-    echo wasBAD().getlang("UsersAddMsgVerificationFail").".";    
+    echo wasBAD().getlang("UsersAddMsgVerificationFail").".";
     removeVeriEntry($valverificationEntry);
     exit();
   }
   // Verifikation abgelaufen?
   if (isVeriCodeExpired($valverificationEntry)) {
     createLogEntry("Anmelden", "Verifikation abgelaufen", "Nutzer: >".$valusername."<", "", "", "", "");
-    echo wasBAD().getlang("UsersAddMsgVerificationExpire").".";    
+    echo wasBAD().getlang("UsersAddMsgVerificationExpire").".";
     exit();
   }
   $admin=0;
@@ -92,9 +92,9 @@ if (isset($_REQUEST['userAdd'])) {
   }
   $valueusername=$valusername;
   $valuesalt=getNewSalt();
-  $valuepasswd=password_hash($valpasswd.$valuesalt, PASSWORD_DEFAULT);            
+  $valuepasswd=password_hash($valpasswd.$valuesalt, PASSWORD_DEFAULT);
   // sessionid
-  session_start();  
+  session_start();
   session_regenerate_id();
   $valuesessionid=session_id();
   $valuerandomid=getFreeRandomID();
