@@ -242,7 +242,7 @@ if (UserIsAdmin($activeuser)) {
         echo "<td>&nbsp;</td>";
       }
     }
-    echo "<td class=\"content\"><font class=\"small\">".urldecode($row['comment'])."</font></td>";
+    echo "<td class=\"content\"><font class=\"small\">".$row['comment']."</font></td>";
     echo "<td>&nbsp;</td>";
     echo "<td class=\"content\"><font class=\"small\"><a href=\"".urldecode($row['long'])."\" target=\"_new\">".urldecode($row['long'])."</a></font></td>";
     echo "</tr>";

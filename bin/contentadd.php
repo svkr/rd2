@@ -87,7 +87,7 @@ if (isset($_REQUEST['ContentAdd'])) {
      $valueowner = getIDFromUsername(htmlspecialchars($_REQUEST['addowner'], ENT_COMPAT, 'UTF-8'));
      $valueip=getRealIpAddr();
      $valuelong=urlencode($valuelong);
-     $valuecomment=urlencode($valuecomment);
+     $valuecomment=$valuecomment;
      $db-> exec("INSERT OR REPLACE INTO content (short, long, passwd, salt, expire, added, owner, ip, comment) VALUES ('$valueshort', '$valuelong', '$valuepasswd', '$valuesalt', '$valueexpire', '$valueadded', '".$valueowner."', '$valueip', '$valuecomment')");
      //
      $savedrd2prefix=getConfig("rd2prefix");
@@ -121,7 +121,7 @@ if (isset($_REQUEST['ContentEditShort'])) {
   while ($row = $results->fetchArray()) {
     $valueaddlong=$row['long'];
     $valueaddexpire=$row['expire'];
-    $valueaddcomment=urlencode($row['comment']);
+    $valueaddcomment=$row['comment'];
     $valueaddowner=$row['owner'];
   };
 } else {
