@@ -10,6 +10,9 @@
 ?>
 <?php
 $devchangelog="";
+$devchangelog=$devchangelog."0.10.x (xx.0x.2016)"."<br />";
+$devchangelog=$devchangelog."&nbsp;&nbsp;&nbsp;2016-04-17 + fix: Einträge - Bemerkungen wurden beim bearbeiten nicht korrekt angezeigt."."<br />";
+$devchangelog=$devchangelog."&nbsp;"."<br />";
 $devchangelog=$devchangelog."0.10.0 (07.03.2016)"."<br />";
 $devchangelog=$devchangelog."&nbsp;&nbsp;&nbsp;2016-03-07 + Einträge - Suche auf Besitzer erweitert"."<br />";
 $devchangelog=$devchangelog."&nbsp;&nbsp;&nbsp;2016-03-07 + Einstellungen - Änderung des Login-Passwort ist nicht mehr ohne Kenntnis des aktuellen Passwort möglich"."<br />";
