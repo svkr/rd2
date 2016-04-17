@@ -26,18 +26,18 @@
 <td>&nbsp;&nbsp;&nbsp;</td>
 <td><font class="bold"><?php echo getlang("LogsTblIP"); ?></font></td>
 <td>&nbsp;&nbsp;&nbsp;</td>
-<td><font class="bold"><?php echo getlang("LogsTblCat"); ?></font>
-</td><td>&nbsp;&nbsp;&nbsp;</td>
+<td><font class="bold"><?php echo getlang("LogsTblCat"); ?></font></td>
+<td>&nbsp;&nbsp;&nbsp;</td>
 <td><font class="bold"><?php echo getlang("LogsTblEvent"); ?></font></td>
-<td><td>&nbsp;&nbsp;&nbsp;</td>
+<td>&nbsp;&nbsp;&nbsp;</td>
 <td><font class="bold"><?php echo getlang("LogsTblArg1"); ?></font></td>
-<td><td>&nbsp;&nbsp;&nbsp;</td>
+<td>&nbsp;&nbsp;&nbsp;</td>
 <td><font class="bold"><?php echo getlang("LogsTblArg2"); ?></font></td>
-<td><td>&nbsp;&nbsp;&nbsp;</td>
+<td>&nbsp;&nbsp;&nbsp;</td>
 <td><font class="bold"><?php echo getlang("LogsTblArg3"); ?></font></td>
-<td><td>&nbsp;&nbsp;&nbsp;</td>
+<td>&nbsp;&nbsp;&nbsp;</td>
 <td><font class="bold"><?php echo getlang("LogsTblArg4"); ?></font></td>
-<td><td>&nbsp;&nbsp;&nbsp;</td>
+<td>&nbsp;&nbsp;&nbsp;</td>
 <td><font class="bold"><?php echo getlang("LogsTblArg5"); ?></font></td>
 </tr>
 <?php
